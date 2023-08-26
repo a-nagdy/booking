@@ -3,11 +3,14 @@
 .css-1u3bzj6-MuiFormControl-root-MuiTextField-root button,
 .css-nxo287-MuiInputBase-input-MuiOutlinedInput-input,
 .css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root *,
-.css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root .css-i44wyl * {
+.css-p0rm37,
+.css-vubbuv {
     color: white !important;
 }
 
-.css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root {
+.css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root,
+.css-i44wyl,
+.css-1bn53lx {
     border: 1px solid #fff !important;
 }
 
