@@ -1,0 +1,21 @@
+.css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root input,
+.css-1u3bzj6-MuiFormControl-root-MuiTextField-root label,
+.css-1u3bzj6-MuiFormControl-root-MuiTextField-root button,
+.css-nxo287-MuiInputBase-input-MuiOutlinedInput-input,
+.css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root * {
+    color: white !important;
+}
+
+.css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root {
+    border: 1px solid #fff !important;
+}
+
+.MuiDateCalendar-root.css-cwhad8-MuiDateCalendar-root {
+    margin: 0;
+}
+
+.reserved-time {
+    color: gray;
+    font-style: italic;
+    cursor: not-allowed;
+}
