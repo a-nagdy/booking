@@ -11,7 +11,7 @@ import workspace from "../../../public/assets/icons/workspace 1.svg";
 
 const Benfits = () => {
   return (
-    <section className="grid grid-cols-1 lg:grid-cols-2 gap-10 font-sans place-items-center">
+    <section className="grid grid-cols-1 lg:grid-cols-2 gap-10 font-sans place-items-center my-20">
       <div className="flex justify-center items-start flex-col gap-10 lg:col-span-1">
         <h3 className='className="font-sans text-4xl font-bold text-white'>
           We do our best facilities provide you

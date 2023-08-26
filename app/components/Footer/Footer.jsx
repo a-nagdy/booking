@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="p-1 bg-[#FF7665] md:p-8 lg:p-10 dark:bg-gray-800 w-fit">
+    <footer className="p-1 bg-[#FF7665] md:p-8 lg:p-10 dark:bg-gray-800">
       <div className="mx-auto text-left lg:text-center flex justify-start items-start flex-col sm:justify-center sm:text-center">
         <a
           href="#"
