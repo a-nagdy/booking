@@ -5,11 +5,13 @@ import PopularProducts from "../components/PopularProducts/PopularProducts";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col gap-10 px-48 py-4">
-      <Mainbanner />
-      <PopularProducts />
-      <Benfits />
-      <Insider />
+    <main className="flex min-h-screen flex-col gap-10 sm:px-10 py-4 w-4/5">
+      <div className="container mx-auto">
+        <Mainbanner />
+        <PopularProducts />
+        <Benfits />
+        <Insider />
+      </div>
     </main>
   );
 }

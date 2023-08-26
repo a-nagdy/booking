@@ -16,6 +16,10 @@
   }
 }
 
+* {
+  outline: 1px solid green;
+}
+
 body {
   background: #222222;
   font-family: 'Courier New', Courier, monospace;

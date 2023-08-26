@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
-    <footer className="p-4 bg-[#FF7665] md:p-8 lg:p-10 dark:bg-gray-800">
-      <div className="mx-auto max-w-screen-xl text-center">
+    <footer className="p-1 bg-[#FF7665] md:p-8 lg:p-10 dark:bg-gray-800 w-fit">
+      <div className="mx-auto text-left lg:text-center flex justify-start items-start flex-col sm:justify-center sm:text-center">
         <a
           href="#"
           className="flex justify-center items-center text-2xl font-semibold text-gray-900 dark:text-white"
@@ -12,7 +12,7 @@ const Footer = () => {
           Open-source library of over 400+ web components and interactive
           elements built for better web.
         </p>
-        <ul className="flex flex-wrap justify-center items-center mb-6 text-gray-900 dark:text-white">
+        <ul className="flex flex-wrap justify-center items-center flex-col sm:flex-row mb-6 text-gray-900 dark:text-white">
           <li>
             <a href="#" className="mr-4 hover:underline md:mr-6 ">
               About

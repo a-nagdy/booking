@@ -2,7 +2,7 @@ import CustomLink from "../CustomLink/CustomLink";
 
 const Navbar = () => {
   return (
-    <nav className="text-white p-2 sm:p-4 lg:p-10">
+    <nav className="text-white p-1 sm:p-4 lg:p-10 w-fit">
       <ul className="flex items-center gap-5">
         <li>
           <CustomLink href="/">Home</CustomLink>
