@@ -162,6 +162,7 @@ const ProductsComp = ({ name }) => {
                 onClose={handleClose}
                 onChange={handleTimeChange}
                 reserveTimes={reserveTimes}
+                datePicked={datePicked}
               />
             )}
             <BookButton
