@@ -6,7 +6,7 @@ import { useState } from "react";
 import BookButton from "../BookButton/BookButton";
 import CustomDatePicker from "../CustomDatePicker/CustomDatePicker";
 import CustomTimePicker from "../CustomTimePicker/CustomTimePicker";
-import PeoplePicker from "../PeoplePicker/PeoplePicker";
+import PeopleData from "../PeopleData/PeopleData";
 import ProductHeader from "../ProductHeader/ProductHeader";
 import ProductImages from "../ProductImages/ProductImages";
 import "./ProductsComps.css";
@@ -17,6 +17,8 @@ const ProductsComp = ({ name }) => {
   const [selectedTime, setSelectedTime] = useState(null);
   const [reserveTimes, setReserveTimes] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
   const [price, setPrice] = useState(0);
   const router = useRouter();
   // useEffect(() => {
@@ -54,6 +56,8 @@ const ProductsComp = ({ name }) => {
       date: datePicked,
       time: selectedTime,
       price: price,
+      fullName,
+      email,
     };
 
     try {
@@ -88,7 +92,14 @@ const ProductsComp = ({ name }) => {
       router.push("/");
     }
   };
-
+  const handleEmail = (e) => {
+    const emailValue = e.target.value;
+    setEmail(emailValue);
+  };
+  const onNameChange = (e) => {
+    const nameValue = e.target.value;
+    setFullName(nameValue);
+  };
   const handleCalender = (e) => {
     const currentPeople = e.target.value;
     const currentPrice = 100;
@@ -149,12 +160,16 @@ const ProductsComp = ({ name }) => {
 
             <h2 className="mt-8 text-base text-gray-100">How Many People:</h2>
 
-            <PeoplePicker
+            <PeopleData
               peoplePicked={peoplePicked}
-              onChange={handleCalender}
+              onPersonChange={handleCalender}
+              email={email}
+              fullName={fullName}
+              onEmailChange={handleEmail}
+              onFullName={onNameChange}
             />
 
-            {peoplePicked && (
+            {peoplePicked && email && fullName && (
               <>
                 <h2 className="mt-8 text-base text-gray-100">Choose Date</h2>
                 <CustomDatePicker
