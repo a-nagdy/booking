@@ -6,7 +6,7 @@ export const generateTimeOptions = (reservedTimes) => {
   const endTime = dayjs().startOf("day").add(1, "day"); // Adjust end time as needed
 
   for (let currentTime = startTime; currentTime.isBefore(endTime); ) {
-    const formattedTime = currentTime.format("hh:mm A");
+    const formattedTime = currentTime.format("hh A");
 
     if (
       !reservedTimes.some((reservedTime) => reservedTime.time === formattedTime)
