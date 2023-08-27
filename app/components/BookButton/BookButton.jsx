@@ -1,30 +1,5 @@
 "use client";
-//   const reservedTimeStrings = data.reservedTimes.map((reservedTime) => {
-//     const [hour, minute] = reservedTime.time.split(":");
-//     const amPm = parseInt(hour) < 12 ? "AM" : "PM";
-//     return `${hour.padStart(2, "0")}:${minute.padStart(
-//       2,
-//       "0"
-//     )} ${amPm}`;
-//   });
 
-//   console.log("Reserved Time Strings:", reservedTimeStrings);
-
-//   setReservedTimes(data.reservedTimes);
-//   const available = generateTimeOptions(reservedTimeStrings);
-
-//   console.log("Available Times:", available);
-
-//   // Remove reserved times from available times
-//   const updatedAvailableTimes = available.filter(
-//     (timeOption) => !reservedTimeStrings.includes(timeOption)
-//   );
-
-//   console.log("Updated Available Times:", updatedAvailableTimes);
-
-//   setAvailableTimes(updatedAvailableTimes);
-//   console.log(reservedTimeStrings);
-//   console.log(updatedAvailableTimes);
 const BookButton = (props) => {
   return (
     <div className="mt-10 flex flex-col items-center justify-between space-y-4 border-t border-b py-4 sm:flex-row sm:space-y-0">
@@ -46,7 +21,6 @@ const BookButton = (props) => {
           viewBox="0 0 24 24"
           stroke="currentColor"
           strokeWidth="2"
-          
         >
           <path
             strokeLinecap="round"

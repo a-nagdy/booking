@@ -9,28 +9,6 @@ export const handler = async (req) => {
       const { people, date, time } = await req.json();
       console.log("test", people, date, time);
 
-      const reservedTimes = await prisma.Reservation.findMany({
-        select: {
-          time: true,
-        },
-      });
-
-      // Check if the selected time is in the reservedTimes array
-      // const isTimeReserved = reservedTimes.some(
-      //   (reservedTime) => reservedTime.time === time
-      // );
-
-      // if (isTimeReserved) {
-      //   return NextResponse.json(
-      //     {
-      //       message: "Time slot is already reserved",
-      //     },
-      //     { status: 400 }
-      //   );
-      // }
-
-      // const availableTimes = generateTimeOptions(reservedTimes);
-
       const response = await prisma.Reservation.create({
         data: {
           people,

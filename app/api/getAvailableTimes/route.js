@@ -7,14 +7,13 @@ const prisma = new PrismaClient();
 export const handler = async (req) => {
   if (req.method === "GET") {
     try {
-      console.log("test");
       const reservedTimes = await prisma.Reservation.findMany({
         select: {
           time: true,
           date: true,
         },
       });
-      console.log(reservedTimes);
+
       const availableTimes = generateTimeOptions(reservedTimes);
       console.log(availableTimes);
 

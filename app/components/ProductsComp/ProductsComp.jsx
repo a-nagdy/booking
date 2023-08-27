@@ -22,7 +22,10 @@ const ProductsComp = ({ name }) => {
     async function fetchReservedAndAvailableTimes() {
       setLoading(true);
       try {
-        const response = await fetch("/api/getAvailableTimes");
+        const response = await fetch("/api/getAvailableTimes", {
+          method: "GET",
+        });
+        console.log(response);
         if (response.ok) {
           const data = await response.json();
           const availableTimes = data.availableTimes || [];
