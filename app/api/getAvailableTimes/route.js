@@ -4,16 +4,17 @@ import { NextResponse } from "next/server";
 
 const prisma = new PrismaClient();
 
-export default async function handler(req, res) {
+export const handler = async (req) => {
   if (req.method === "GET") {
     try {
+      console.log("test");
       const reservedTimes = await prisma.Reservation.findMany({
         select: {
           time: true,
           date: true,
         },
       });
-
+      console.log(reservedTimes);
       const availableTimes = generateTimeOptions(reservedTimes);
       console.log(availableTimes);
 
@@ -35,5 +36,5 @@ export default async function handler(req, res) {
       { status: 500 }
     );
   }
-}
+};
 export { handler as GET };

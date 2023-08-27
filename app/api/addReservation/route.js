@@ -1,10 +1,9 @@
-import { generateTimeOptions } from "@/app/utils/timeUtil";
 import { PrismaClient } from "@prisma/client";
 import { NextResponse } from "next/server";
 
 const prisma = new PrismaClient();
 
-export default async function handler(req) {
+export const handler = async (req) => {
   if (req.method === "POST") {
     try {
       const { people, date, time } = await req.json();
@@ -17,20 +16,20 @@ export default async function handler(req) {
       });
 
       // Check if the selected time is in the reservedTimes array
-      const isTimeReserved = reservedTimes.some(
-        (reservedTime) => reservedTime.time === time
-      );
+      // const isTimeReserved = reservedTimes.some(
+      //   (reservedTime) => reservedTime.time === time
+      // );
 
-      if (isTimeReserved) {
-        return NextResponse.json(
-          {
-            message: "Time slot is already reserved",
-          },
-          { status: 400 }
-        );
-      }
+      // if (isTimeReserved) {
+      //   return NextResponse.json(
+      //     {
+      //       message: "Time slot is already reserved",
+      //     },
+      //     { status: 400 }
+      //   );
+      // }
 
-      const availableTimes = generateTimeOptions(reservedTimes);
+      // const availableTimes = generateTimeOptions(reservedTimes);
 
       const response = await prisma.Reservation.create({
         data: {
@@ -61,5 +60,5 @@ export default async function handler(req) {
       { status: 500 }
     );
   }
-}
+};
 export { handler as GET, handler as POST };
