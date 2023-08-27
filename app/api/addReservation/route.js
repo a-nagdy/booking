@@ -6,7 +6,7 @@ const prisma = new PrismaClient();
 export const handler = async (req) => {
   if (req.method === "POST") {
     try {
-      const { people, date, time } = await req.json();
+      const { people, date, time, price } = await req.json();
       console.log("test", people, date, time);
 
       const response = await prisma.Reservation.create({

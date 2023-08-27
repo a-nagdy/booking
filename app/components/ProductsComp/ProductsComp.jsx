@@ -2,7 +2,7 @@
 
 import dayjs from "dayjs";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import BookButton from "../BookButton/BookButton";
 import CustomDatePicker from "../CustomDatePicker/CustomDatePicker";
 import CustomTimePicker from "../CustomTimePicker/CustomTimePicker";
@@ -19,34 +19,34 @@ const ProductsComp = ({ name }) => {
   const [loading, setLoading] = useState(false);
   const [price, setPrice] = useState(0);
   const router = useRouter();
-  useEffect(() => {
-    async function fetchReservedAndAvailableTimes() {
-      setLoading(true);
-      try {
-        const response = await fetch("/api/getAvailableTimes", {
-          method: "GET",
-        });
-        console.log(response);
-        if (response.ok) {
-          const data = await response.json();
-          const availableTimes = data.availableTimes || [];
-          const reservedTimes = data.reservedTimes || [];
+  // useEffect(() => {
+  //   async function fetchReservedAndAvailableTimes() {
+  //     setLoading(true);
+  //     try {
+  //       const response = await fetch("/api/getAvailableTimes", {
+  //         method: "GET",
+  //       });
+  //       console.log(response);
+  //       if (response.ok) {
+  //         const data = await response.json();
+  //         const availableTimes = data.availableTimes || [];
+  //         const reservedTimes = data.reservedTimes || [];
 
-          console.log("Available Times:", availableTimes);
-          console.log("Reserved Times:", reservedTimes);
-          setReserveTimes(reservedTimes);
-          // Rest of your code...
-        } else {
-          console.log("Failed to fetch data.");
-        }
-      } catch (error) {
-        setLoading(false);
-        console.log("Error:", error);
-      }
-    }
+  //         console.log("Available Times:", availableTimes);
+  //         console.log("Reserved Times:", reservedTimes);
+  //         setReserveTimes(reservedTimes);
+  //         // Rest of your code...
+  //       } else {
+  //         console.log("Failed to fetch data.");
+  //       }
+  //     } catch (error) {
+  //       setLoading(false);
+  //       console.log("Error:", error);
+  //     }
+  //   }
 
-    fetchReservedAndAvailableTimes();
-  }, []);
+  //   fetchReservedAndAvailableTimes();
+  // }, []);
 
   const handleBookButtonClick = async () => {
     const reservationData = {
