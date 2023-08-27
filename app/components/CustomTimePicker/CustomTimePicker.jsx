@@ -8,25 +8,34 @@ const CustomTimePicker = ({
   onChange,
   reserveTimes,
   datePicked,
-}) => (
-  <div className="mt-10 flex select-none flex-wrap items-center gap-1 text-white">
-    <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <TimePicker
-        label="Select Time"
-        value={selectedTime}
-        views={["hours"]}
-        onClose={onClose}
-        onChange={onChange}
-        shouldDisableTime={(time) =>
-          reserveTimes.some(
-            (reservedTime) =>
-              reservedTime.date === datePicked &&
-              reservedTime.time === time.format("HH A")
-          )
-        }
-      />
-    </LocalizationProvider>
-  </div>
-);
+  productName,
+}) => {
+  console.log(productName);
+
+  return (
+    <div className="mt-10 flex select-none flex-wrap items-center gap-1 text-white">
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <TimePicker
+          label="Select Time"
+          value={selectedTime}
+          views={["hours"]}
+          onChange={onChange}
+          onClose={onClose}
+          ampm={false}
+          shouldDisableTime={(time) =>
+            reserveTimes.some(
+              (reservedTime) =>
+                reservedTime.date === datePicked &&
+                reservedTime.time === time.format("HH A") &&
+                reservedTime.product === productName
+            ) ||
+            time.hour() < 10 ||
+            time.hour() > 24
+          }
+        />
+      </LocalizationProvider>
+    </div>
+  );
+};
 
 export default CustomTimePicker;

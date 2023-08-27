@@ -17,12 +17,13 @@ model User {
 }
 
 model Reservation {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  people    String
-  date      String
-  time      String
-  createdAt DateTime @default(now())
-  price     Int
-  fullName  String
-  email     String
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  people      String
+  date        String
+  time        String
+  createdAt   DateTime @default(now())
+  price       Int
+  fullName    String
+  email       String
+  productName String
 }

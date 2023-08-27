@@ -11,15 +11,17 @@ export const handler = async (req) => {
         select: {
           time: true,
           date: true,
+          productName: true,
         },
       });
 
       const availableTimes = generateTimeOptions(reservedTimes);
-      console.log(availableTimes);
+      // console.log(availableTimes);
 
       return NextResponse.json({
         reservedTimes,
         availableTimes,
+        productName,
       });
     } catch (error) {
       console.error(error);

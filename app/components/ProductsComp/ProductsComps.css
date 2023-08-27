@@ -34,3 +34,28 @@
 .css-5ikgf7 {
     width: 100%;
 }
+
+.MuiPickersPopper-root.css-1anqmj6-MuiPopper-root-MuiPickersPopper-root.MuiPopper-root {
+    height: 350px;
+}
+
+.css-1ed1o9w-MuiList-root-MuiMultiSectionDigitalClockSection-root,
+.css-bmoxj4-MuiList-root-MuiMultiSectionDigitalClockSection-root {
+    max-height: max-content !important;
+}
+
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation8.MuiPickersPopper-paper.css-71vzt-MuiPaper-root-MuiPickersPopper-paper,
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation8.MuiPickersPopper-paper.css-1k4oq0i-MuiPaper-root-MuiPickersPopper-paper {
+    width: max-content !important;
+}
+
+.MuiMultiSectionDigitalClock-root.css-1dleds2-MuiMultiSectionDigitalClock-root ul,
+.css-1dleds2-MuiMultiSectionDigitalClock-root {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr);
+    overflow: unset;
+}
+
+.css-bmoxj4-MuiList-root-MuiMultiSectionDigitalClockSection-root:hover {
+    overflow: unset !important;
+}
