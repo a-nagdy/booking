@@ -5,17 +5,18 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import dayjs from "dayjs";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import BookButton from "../BookButton/BookButton";
 import ProductImages from "../ProductImages/ProductImages";
 import "./ProductsComps.css";
 
-const ProductsComp = ({ name, handleReservation }) => {
+const ProductsComp = ({ name }) => {
   const [peoplePicked, setPeoplePicked] = useState("");
   const [datePicked, setDatePicked] = useState(false);
   const [selectedTime, setSelectedTime] = useState(null);
   const [reserveTimes, setReserveTimes] = useState([]);
-
+  const router = useRouter();
   useEffect(() => {
     async function fetchReservedAndAvailableTimes() {
       try {
@@ -70,6 +71,8 @@ const ProductsComp = ({ name, handleReservation }) => {
     } catch (error) {
       console.log("Error:", error);
       // Handle error
+    } finally {
+      router.push("/");
     }
   };
 
