@@ -15,7 +15,7 @@ const PeopleData = ({
         onChange={onPersonChange}
         value={peoplePicked}
         placeholder="100 LE / Person"
-        className="p-1 px-2 rounded-sm"
+        className="p-1 px-2 rounded-sm text-black"
       />
     </div>
     <div className="flex flex-col gap-3">
@@ -26,7 +26,7 @@ const PeopleData = ({
         onChange={onEmailChange}
         value={email}
         placeholder="Email@example.com"
-        className="p-1 px-2 rounded-sm"
+        className="p-1 px-2 rounded-sm text-black"
       />
     </div>
     <div className="flex flex-col gap-3">
@@ -37,7 +37,7 @@ const PeopleData = ({
         onChange={onFullName}
         value={fullName}
         placeholder="Example John"
-        className="p-1 px-2 rounded-sm"
+        className="p-1 px-2 rounded-sm text-black"
       />{" "}
     </div>
   </div>
