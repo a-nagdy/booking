@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import BookButton from "../BookButton/BookButton";
 import CustomDatePicker from "../CustomDatePicker/CustomDatePicker";
 import CustomTimePicker from "../CustomTimePicker/CustomTimePicker";
+import LoadingSpinner from "../Loading/LoadingSpinner";
 import PeopleData from "../PeopleData/PeopleData";
 import ProductHeader from "../ProductHeader/ProductHeader";
 import ProductImages from "../ProductImages/ProductImages";
@@ -23,8 +24,8 @@ const ProductsComp = ({ name }) => {
   const router = useRouter();
   useEffect(() => {
     async function fetchReservedAndAvailableTimes() {
-      setLoading(true);
       try {
+        setLoading(true);
         const response = await fetch("/api/getAvailableTimes", {
           method: "GET",
         });
@@ -39,6 +40,7 @@ const ProductsComp = ({ name }) => {
           setReserveTimes(reservedTimes);
           // Rest of your code...
         } else {
+          setLoading(false);
           console.log("Failed to fetch data.");
         }
       } catch (error) {
@@ -46,11 +48,14 @@ const ProductsComp = ({ name }) => {
         console.log("Error:", error);
       }
     }
-
+    setLoading(false);
     fetchReservedAndAvailableTimes();
   }, []);
 
   const handleBookButtonClick = async () => {
+    if (!selectedTime && !fullName && !email && !datePicked) {
+      return; // Exit the function early if any required fields are missing
+    }
     const reservationData = {
       people: peoplePicked,
       date: datePicked,
@@ -87,7 +92,7 @@ const ProductsComp = ({ name }) => {
       console.log("Error:", error);
       // Handle error
     } finally {
-      setLoading(true);
+      setLoading(false);
 
       router.push("/");
     }
@@ -146,7 +151,7 @@ const ProductsComp = ({ name }) => {
   console.log(price);
   return (
     <section className="py-12 sm:py-16">
-      {loading && <p>loading</p>}
+      {loading && <LoadingSpinner />}
       <div className="container mx-auto px-4">
         <ProductHeader productName={name} />
 
