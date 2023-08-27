@@ -47,6 +47,7 @@ const ProductsComp = ({ name }) => {
         setLoading(false);
         console.log("Error:", error);
       }
+      setLoading(false);
     }
     setLoading(false);
     fetchReservedAndAvailableTimes();
