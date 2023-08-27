@@ -5,7 +5,7 @@ const PeoplePicker = ({ peoplePicked, onChange }) => (
       name="type"
       onChange={onChange}
       value={peoplePicked}
-      placeholder="How Many People"
+      placeholder="100 LE / Person"
     />
   </div>
 );

@@ -14,6 +14,7 @@ export const handler = async (req) => {
           people,
           date,
           time,
+          price,
         },
       });
 

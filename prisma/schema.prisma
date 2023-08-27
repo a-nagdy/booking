@@ -22,4 +22,5 @@ model Reservation {
   date String 
   time String 
   createdAt DateTime @default(now())
+  price String
 }

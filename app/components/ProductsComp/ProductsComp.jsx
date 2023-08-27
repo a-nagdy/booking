@@ -17,6 +17,7 @@ const ProductsComp = ({ name }) => {
   const [selectedTime, setSelectedTime] = useState(null);
   const [reserveTimes, setReserveTimes] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [price, setPrice] = useState(0);
   const router = useRouter();
   useEffect(() => {
     async function fetchReservedAndAvailableTimes() {
@@ -52,6 +53,7 @@ const ProductsComp = ({ name }) => {
       people: peoplePicked,
       date: datePicked,
       time: selectedTime,
+      price: price,
     };
 
     try {
@@ -88,12 +90,14 @@ const ProductsComp = ({ name }) => {
   };
 
   const handleCalender = (e) => {
-    if (e.target.value >= 8) {
-      setPeoplePicked(e.target.value);
-    } else {
-      console.log("true");
-    }
-    console.log(e.target.value);
+    const currentPeople = e.target.value;
+    const currentPrice = 100;
+    const fullPrice = currentPeople * currentPrice;
+    setPeoplePicked(currentPeople);
+    setPrice(fullPrice);
+
+    console.log(currentPeople);
+    console.log(fullPrice);
   };
 
   const handleDateChange = (newDate) => {
@@ -128,6 +132,7 @@ const ProductsComp = ({ name }) => {
     }
   };
   console.log(peoplePicked);
+  console.log(price);
   return (
     <section className="py-12 sm:py-16">
       {loading && <p>loading</p>}
@@ -159,6 +164,7 @@ const ProductsComp = ({ name }) => {
                 />
               </>
             )}
+
             {datePicked && (
               <CustomTimePicker
                 selectedTime={selectedTime}
@@ -168,6 +174,12 @@ const ProductsComp = ({ name }) => {
                 datePicked={datePicked}
               />
             )}
+            {price > 0 && (
+              <div className="my-10 text-white font-sans font-bold">
+                {price} LE
+              </div>
+            )}
+
             <BookButton
               disabled={!selectedTime}
               className={
