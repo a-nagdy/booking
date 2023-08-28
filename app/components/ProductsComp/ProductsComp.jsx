@@ -31,6 +31,8 @@ const ProductsComp = ({ name }) => {
         setLoading(true);
         const response = await fetch("/api/getAvailableTimes", {
           method: "GET",
+          next: { revalidate: 5 },
+          cache: "no-store",
         });
         // console.log(response);
         if (response.ok) {
@@ -82,6 +84,7 @@ const ProductsComp = ({ name }) => {
         headers: {
           "Content-Type": "application/json",
         },
+
         body: JSON.stringify(reservationData),
       });
       // console.log(response);
