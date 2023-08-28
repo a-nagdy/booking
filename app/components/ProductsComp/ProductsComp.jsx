@@ -35,9 +35,8 @@ const ProductsComp = ({ name }) => {
         // console.log(response);
         if (response.ok) {
           const data = await response.json();
-          const availableTimes = data.availableTimes || [];
+          // const availableTimes = data.availableTimes || [];
           const reservedTimes = data.reservedTimes || [];
-
           // console.log("Available Times:", availableTimes);
           // console.log("Reserved Times:", reservedTimes);
 
@@ -74,7 +73,7 @@ const ProductsComp = ({ name }) => {
       email,
       productName: name,
     };
-    console.log(reservationData.product);
+    // console.log(reservationData.product);
 
     try {
       setLoading(true);
@@ -104,7 +103,7 @@ const ProductsComp = ({ name }) => {
       // Handle error
     } finally {
       setLoading(false);
-      console.log("finally", reservationData.productName);
+      // console.log("finally", reservationData.productName);
       router.push("/");
     }
   };

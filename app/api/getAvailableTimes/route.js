@@ -21,7 +21,6 @@ export const handler = async (req) => {
       return NextResponse.json({
         reservedTimes,
         availableTimes,
-        productName,
       });
     } catch (error) {
       console.error(error);

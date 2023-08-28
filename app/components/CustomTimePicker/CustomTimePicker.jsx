@@ -10,7 +10,7 @@ const CustomTimePicker = ({
   datePicked,
   productName,
 }) => {
-  console.log(productName);
+  // console.log(productName);
 
   return (
     <div className="mt-10 flex select-none flex-wrap items-center gap-1 text-white">
@@ -25,9 +25,9 @@ const CustomTimePicker = ({
           shouldDisableTime={(time) =>
             reserveTimes.some(
               (reservedTime) =>
+                reservedTime.productName === productName &&
                 reservedTime.date === datePicked &&
-                reservedTime.time === time.format("HH A") &&
-                reservedTime.product === productName
+                reservedTime.time === time.format("HH A")
             ) ||
             time.hour() < 10 ||
             time.hour() > 24

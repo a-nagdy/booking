@@ -8,7 +8,7 @@ export const handler = async (req) => {
     try {
       const { people, date, time, price, fullName, email, productName } =
         await req.json();
-      console.log("test", productName);
+      // console.log("test", productName);
 
       const response = await prisma.Reservation.create({
         data: {

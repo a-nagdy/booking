@@ -70,7 +70,7 @@ const PopularProducts = () => {
               className="flex flex-col justify-center bg-[#FAFAFA] rounded-xl"
               key={item.id}
             >
-              <Link href={item.name}>
+              <Link href={item.name + item.id}>
                 <Image src={item.img} alt={item.img} />
                 <div className="p-3 flex flex-col justify-center gap-5">
                   <h3 className="text-black text-xl font-bold">{item.name}</h3>
