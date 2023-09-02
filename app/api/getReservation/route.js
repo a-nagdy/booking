@@ -8,6 +8,7 @@ export const handler = async (req) => {
     try {
       const response = await prisma.Reservation.findMany({
         select: {
+          id: true,
           people: true,
           date: true,
           time: true,

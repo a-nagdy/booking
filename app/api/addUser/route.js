@@ -6,25 +6,26 @@ const prisma = new PrismaClient();
 export const handler = async (req) => {
   if (req.method === "POST") {
     try {
-      const { people, date, time, price, fullName, email, productName } =
-        await req.json();
+      const { email, password, firstName, lastName, role } = await req.json();
+      // console.log("test", productName);
 
-      const response = await prisma.Reservation.create({
+      const response = await prisma.User.create({
         data: {
-          people,
-          date,
-          time,
-          price,
-          fullName,
           email,
-          productName,
+          password,
+          firstName,
+          lastName,
+          role,
         },
       });
 
-      return NextResponse.json({
-        success: "Create Successfully",
-        data: response,
-      });
+      return NextResponse.json(
+        {
+          success: "User Created Successfully",
+          data: response,
+        },
+        { status: 200 }
+      );
     } catch (error) {
       console.error(error);
       return NextResponse.json({
