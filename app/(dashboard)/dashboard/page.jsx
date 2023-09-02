@@ -1,7 +1,5 @@
 import Login from "@/app/components/Login/Login";
 
-const Dashboard = async () => {
+export default function Home() {
   return <Login />;
-};
-
-export default Dashboard;
+}

@@ -10,8 +10,6 @@ const CustomTimePicker = ({
   datePicked,
   productName,
 }) => {
-  // console.log(productName);
-
   return (
     <div className="mt-10 flex select-none flex-wrap items-center gap-1 text-white">
       <LocalizationProvider dateAdapter={AdapterDayjs}>

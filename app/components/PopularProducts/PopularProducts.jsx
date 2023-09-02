@@ -56,13 +56,15 @@ const PopularProducts = () => {
   ];
 
   return (
-    <section>
-      <h1 className="font-bold font-xl text-white">Our Most Popular Games</h1>
-      <div className="flex justify-end mb-5">
+    <section className="my-10">
+      <h1 className="font-bold font-2xl text-white my-10">
+        Our Most Popular Games
+      </h1>
+      {/* <div className="flex justify-end mb-5">
         <button className="bg-[#FF766566] p-2 px-4 rounded-md hover:bg-white hover:text-black transition ease-in-out delay-150 text-white">
           View all
         </button>
-      </div>
+      </div> */}
       <div>
         <Slider count={5} delay={3500}>
           {DUMMY_DATA.map((item) => (

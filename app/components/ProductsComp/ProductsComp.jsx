@@ -1,6 +1,7 @@
 "use client";
 
 import { generateTimeOptions } from "@/app/utils/timeUtil";
+import axios from "axios";
 import dayjs from "dayjs";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -29,42 +30,28 @@ const ProductsComp = ({ name }) => {
     async function fetchReservedAndAvailableTimes() {
       try {
         setLoading(true);
-        const response = await fetch("/api/getAvailableTimes", {
-          method: "GET",
-          next: { revalidate: 5 },
-          cache: "no-store",
-        });
+        const response = await axios.get("/api/getAvailableTimes");
         // console.log(response);
-        if (response.ok) {
-          const data = await response.json();
-          // const availableTimes = data.availableTimes || [];
+        if (response.status === 200) {
+          const data = await response.data;
           const reservedTimes = data.reservedTimes || [];
-          // console.log("Available Times:", availableTimes);
-          // console.log("Reserved Times:", reservedTimes);
-
           const filteredAvailableTimes = generateTimeOptions(reservedTimes);
           setAvailableTimes(filteredAvailableTimes);
-
           setReserveTimes(reservedTimes);
-          // Rest of your code...
-        } else {
-          setLoading(false);
-          // console.log("Failed to fetch data.");
         }
       } catch (error) {
+        console.log(error);
         setLoading(false);
-        // console.log("Error:", error);
       }
       setLoading(false);
     }
     setLoading(false);
     fetchReservedAndAvailableTimes();
   }, []);
-  // console.log(availableTimes);
 
   const handleBookButtonClick = async () => {
     if (!selectedTime && !fullName && !email && !datePicked) {
-      return; // Exit the function early if any required fields are missing
+      return;
     }
     const reservationData = {
       people: peoplePicked,
@@ -75,38 +62,21 @@ const ProductsComp = ({ name }) => {
       email,
       productName: name,
     };
-    // console.log(reservationData.product);
 
     try {
       setLoading(true);
-      const response = await fetch("/api/addReservation", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-
-        body: JSON.stringify(reservationData),
-      });
-      // console.log(response);
+      const response = await axios.post("/api/addReservation", reservationData);
       if (response.ok) {
         const responseData = await response.json();
-        // console.log("Reservation successful!");
-
-        // Update available times based on the response
         if (responseData.availableTimes) {
           setAvailableTimes(responseData.availableTimes);
         }
-      } else {
-        // console.log("Reservation failed.");
       }
     } catch (error) {
       setLoading(false);
-
-      // console.log("Error:", error);
-      // Handle error
+      console.log(error);
     } finally {
       setLoading(false);
-      // console.log("finally", reservationData.productName);
       router.push("/");
     }
   };
@@ -124,16 +94,13 @@ const ProductsComp = ({ name }) => {
     const fullPrice = currentPeople * currentPrice;
     setPeoplePicked(currentPeople);
     setPrice(fullPrice);
-
-    // console.log(currentPeople);
-    // console.log(fullPrice);
   };
 
   const handleDateChange = (newDate) => {
     if (newDate) {
-      const selectedDay = newDate.$D; // Day of the month (1-31)
-      const selectedMonth = newDate.$M + 1; // Month (0-11, so adding 1)
-      const selectedYear = newDate.$y; // Full year
+      const selectedDay = newDate.$D;
+      const selectedMonth = newDate.$M + 1;
+      const selectedYear = newDate.$y;
 
       const dateData = selectedDay + "/" + selectedMonth + "/" + selectedYear;
       setDatePicked(dateData);
@@ -154,14 +121,8 @@ const ProductsComp = ({ name }) => {
   const handleClose = () => {
     if (selectedTime && selectedTime.$H !== undefined) {
       const selectedHour = selectedTime.$H.toString().padStart(2, "0");
-      const currentTime = selectedHour + ":" + "00";
-      // console.log("hour", selectedHour);
-      // console.log("full time", currentTime);
-      // console.log(selectedTime);
     }
   };
-  // console.log(peoplePicked);
-  // console.log(price);
   return (
     <section className="py-12 sm:py-16">
       {loading && <LoadingSpinner />}
