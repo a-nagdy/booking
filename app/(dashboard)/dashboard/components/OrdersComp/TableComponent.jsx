@@ -8,10 +8,10 @@ const TableComponent = ({
   productName,
 }) => {
   return (
-    <tr className="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
+    <tr className="bg-[#e7e7e7] dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
       <th
         scope="row"
-        className="px-6 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+        className="px-6 py-3 font-medium text-gray-950 whitespace-nowrap dark:text-white"
       >
         {productName}
       </th>
