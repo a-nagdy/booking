@@ -1,8 +1,8 @@
-import { getReservationData } from "@/app/(dashboard)/dashboard/orders/page";
+import { getReservationData } from "@/app/utils/getReservationData";
 import Link from "next/link";
 
 const DashSidebar = async () => {
-  const { data } = await getReservationData();
+  const data = await getReservationData();
 
   return (
     <div className="w-64 fixed sm:relative bg-gray-800 shadow md:h-screen flex-col justify-between hidden sm:flex h-screen">
@@ -16,7 +16,7 @@ const DashSidebar = async () => {
           <li className="flex w-full justify-between text-gray-300 cursor-pointer items-center mb-6">
             <Link
               className="flex items-center focus:outline-none focus:ring-2 focus:ring-white"
-              href={"/orders"}
+              href={"/dashboard/orders"}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +44,7 @@ const DashSidebar = async () => {
           </li>
           <li className="flex w-full justify-between text-gray-400 hover:text-gray-300 cursor-pointer items-center mb-6">
             <Link
-              href={"/register"}
+              href={"/dashboard/register"}
               className="flex items-center focus:outline-none focus:ring-2 focus:ring-white"
             >
               <svg

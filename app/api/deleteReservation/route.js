@@ -2,7 +2,7 @@ import { PrismaClient } from "@prisma/client";
 import { NextResponse } from "next/server";
 
 const prisma = new PrismaClient();
-export async function DELETE(req) {
+export const handler = async (req) => {
   if (req.method === "DELETE") {
     try {
       const { productId } = await req.json();
@@ -33,4 +33,5 @@ export async function DELETE(req) {
   } else {
     return NextResponse.json({ error: "Method not allowed" });
   }
-}
+};
+export { handler as DELETE };

@@ -1,33 +1,24 @@
+
+import { getReservationData } from "@/app/utils/getReservationData";
 import OrdersComp from "../components/OrdersComp/OrdersComp";
 import TableComponent from "../components/OrdersComp/TableComponent";
 
-export const getReservationData = async () => {
-  const res = await fetch(
-    process.env.NEXT_PUBLIC_BASE_URL + "/api/getReservation",
-    {
-      next: { revalidate: 0 },
-    }
-  );
-  if (res.ok) {
-    // console.log(res);
-    return res.json();
-  }
-  return [];
-};
+
+
 
 const Orders = async () => {
-  const { data } = await getReservationData();
+  const data = await getReservationData();
 
   return (
     <div className="p-10 w-full">
       {data.length === 0 ? (
         <div className="flex justify-center items-center bg-[#e7e7e7] w-full h-full text-black font-sans text-xl ">
           <h3>
-            No Data Available Right Now try{" "}
-            <a href={"/orders"} className="text-blue-600">
+            No Data Available Right Now. Try{" "}
+            <a href="/orders" className="text-blue-600">
               {" "}
               Refreshing{" "}
-            </a>
+            </a>{" "}
             the page!
           </h3>
         </div>
