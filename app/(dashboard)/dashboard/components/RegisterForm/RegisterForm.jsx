@@ -2,7 +2,7 @@
 
 import login_validate from "@/app/utils/validate";
 import { useFormik } from "formik";
-import { onSubmit } from "../../register/page";
+import { onSubmit } from "../../[admin]/register/page";
 
 const RegisterForm = () => {
   const formik = useFormik({
@@ -112,7 +112,9 @@ const RegisterForm = () => {
             onBlur={formik.handleBlur}
             value={formik.values.role}
           >
-            <option value="USER">User</option>
+            <option value="USER" selected>
+              USER
+            </option>
             <option value="ADMIN">Admin</option>
           </select>
         </div>

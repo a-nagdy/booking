@@ -1,5 +1,8 @@
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import axios from "axios";
-import RegisterForm from "../components/RegisterForm/RegisterForm";
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
+import RegisterForm from "../../components/RegisterForm/RegisterForm";
 
 export async function onSubmit(values, { isSubmitting }) {
   try {
@@ -14,7 +17,12 @@ export async function onSubmit(values, { isSubmitting }) {
   }
 }
 
-const Register = () => {
+const Register = async () => {
+  const session = await getServerSession(authOptions);
+  if (!session || session.user.role !== "ADMIN") {
+    redirect("/");
+  }
+
   return <RegisterForm />;
 };
 

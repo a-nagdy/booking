@@ -1,4 +1,4 @@
-import "../../../globals.css";
+import "../dashboard.css";
 import DashSidebar from "../components/sidebar/DashSidebar";
 
 export const metadata = {

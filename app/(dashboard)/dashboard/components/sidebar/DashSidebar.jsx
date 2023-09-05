@@ -16,7 +16,7 @@ const DashSidebar = async () => {
           <li className="flex w-full justify-between text-gray-300 cursor-pointer items-center mb-6">
             <Link
               className="flex items-center focus:outline-none focus:ring-2 focus:ring-white"
-              href={"/dashboard/orders"}
+              href={"/dashboard/granted/orders"}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +44,7 @@ const DashSidebar = async () => {
           </li>
           <li className="flex w-full justify-between text-gray-400 hover:text-gray-300 cursor-pointer items-center mb-6">
             <Link
-              href={"/dashboard/register"}
+              href={"/dashboard/granted/register"}
               className="flex items-center focus:outline-none focus:ring-2 focus:ring-white"
             >
               <svg
