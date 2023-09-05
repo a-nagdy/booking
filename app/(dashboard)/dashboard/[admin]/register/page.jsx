@@ -1,7 +1,9 @@
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import LoadingSpinner from "@/app/components/Loading/LoadingSpinner";
 import axios from "axios";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
+import { Suspense } from "react";
 import RegisterForm from "../../components/RegisterForm/RegisterForm";
 
 export async function onSubmit(values, { isSubmitting }) {
@@ -23,7 +25,11 @@ const Register = async () => {
     redirect("/");
   }
 
-  return <RegisterForm />;
+  return (
+    <Suspense fallback={<LoadingSpinner />}>
+      <RegisterForm />
+    </Suspense>
+  );
 };
 
 export default Register;

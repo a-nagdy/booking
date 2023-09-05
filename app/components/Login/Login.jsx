@@ -4,10 +4,11 @@ import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import LoadingSpinner from "../Loading/LoadingSpinner";
-const Login = () => {
+const Login = ({ sessionRole }) => {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -21,10 +22,11 @@ const Login = () => {
       redirect: false,
       email: values.email,
       password: values.password,
-      callbackUrl: "/dashboard/granted/orders",
+      callbackUrl: `/dashboard/${sessionRole}/orders`,
     });
     if (status.error) {
       setError(status.error);
+      router.refresh();
       setLoading(false);
       return;
     }

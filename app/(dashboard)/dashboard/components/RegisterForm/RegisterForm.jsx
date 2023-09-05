@@ -112,7 +112,7 @@ const RegisterForm = () => {
             onBlur={formik.handleBlur}
             value={formik.values.role}
           >
-            <option value="USER" selected>
+            <option value="USER" defaultValue>
               USER
             </option>
             <option value="ADMIN">Admin</option>
