@@ -1,8 +1,8 @@
 "use client";
 
-import { onSubmit } from "@/app/(dashboard)/register/page";
 import login_validate from "@/app/utils/validate";
 import { useFormik } from "formik";
+import { onSubmit } from "../../register/page";
 
 const RegisterForm = () => {
   const formik = useFormik({
