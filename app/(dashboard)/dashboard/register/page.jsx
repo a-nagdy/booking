@@ -1,5 +1,5 @@
 import axios from "axios";
-import RegisterForm from "../dashboard/components/RegisterForm/RegisterForm";
+import RegisterForm from "../components/RegisterForm/RegisterForm";
 
 export async function onSubmit(values, { isSubmitting }) {
   try {

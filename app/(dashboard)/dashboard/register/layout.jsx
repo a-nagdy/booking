@@ -1,5 +1,5 @@
 import "../../../globals.css";
-import DashSidebar from "../dashboard/components/sidebar/DashSidebar";
+import DashSidebar from "../components/sidebar/DashSidebar";
 
 export const metadata = {
   title: "Next.js",
