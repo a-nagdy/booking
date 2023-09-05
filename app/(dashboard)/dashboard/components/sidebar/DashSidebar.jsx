@@ -1,4 +1,4 @@
-import { getReservationData } from "@/app/(dashboard)/orders/page";
+import { getReservationData } from "@/app/(dashboard)/dashboard/orders/page";
 import Link from "next/link";
 
 const DashSidebar = async () => {

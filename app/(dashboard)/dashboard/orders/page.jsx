@@ -1,5 +1,5 @@
-import OrdersComp from "../dashboard/components/OrdersComp/OrdersComp";
-import TableComponent from "../dashboard/components/OrdersComp/TableComponent";
+import OrdersComp from "../components/OrdersComp/OrdersComp";
+import TableComponent from "../components/OrdersComp/TableComponent";
 
 export const getReservationData = async () => {
   const res = await fetch(
